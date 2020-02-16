@@ -2,7 +2,10 @@ version: '3.3'
 
 services:
   kubernetes-test:
-    image: theodorusyoga/kubernetes-test
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: kubernetes-test
     ports:
       - '3000:3000'
     environment: 
