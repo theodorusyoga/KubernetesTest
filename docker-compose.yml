@@ -1,0 +1,21 @@
+version: '3.3'
+
+services:
+  kubernetes-test:
+    image: theodorusyoga/kubernetes-test
+    ports:
+      - '3000:3000'
+    environment: 
+      - NODE_ENV=production
+      - MYSQL_DATABASE=kubernetes-test
+      - MYSQL_PASSWORD=mypass
+    depends_on:
+      - mysql
+  mysql:
+    image: mysql
+    ports: 
+      - '3001:3306'
+    volumes:
+      - $PWD/db:/var/lib/mysql
+    environment: 
+      - MYSQL_ROOT_PASSWORD=mypass
