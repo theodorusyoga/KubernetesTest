@@ -14,7 +14,7 @@ app.get('/environment', (req, res) => {
 
 app.get('/dbtest', (req, res) => {
     const connection = mysql.createConnection({
-        host: 'mysql',
+        host: 'kubsql',
         user: 'root',
         password: sqlPass,
         database: 'kubernetes_test',
