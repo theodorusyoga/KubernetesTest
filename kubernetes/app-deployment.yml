@@ -18,7 +18,7 @@ spec:
         resources:
           limits:
             memory: "128Mi"
-            cpu: "500m"
+            cpu: "10m"
         ports:
         - containerPort: 80
         env:
@@ -28,3 +28,5 @@ spec:
             value: kubernetes-test
           - name: MYSQL_PASSWORD
             value: mypass
+          - name: MYSQL_HOST
+            value: 10.1.64.3
