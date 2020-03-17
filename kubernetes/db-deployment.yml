@@ -16,13 +16,20 @@ spec:
         app: kubernetes-test
     spec:
       containers:
-      - image: mysql:5.6
+      - image: mysql:8.0
         name: kubsql
         ports:
           - containerPort: 3306
             name: kubsql
         env:
+          - name: MYSQL_USER
+            value: root
           - name: MYSQL_ROOT_PASSWORD
+            valueFrom:
+                secretKeyRef:
+                  name: mysql-secrets
+                  key: ROOT_PASSWORD
+          - name: MYSQL_PASSWORD
             valueFrom:
                 secretKeyRef:
                   name: mysql-secrets

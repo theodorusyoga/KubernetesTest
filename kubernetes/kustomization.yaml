@@ -6,3 +6,7 @@ namespace: kubernetes-test
 resources:
 - app-deployment.yml
 - app-service.yml
+- db-secret.yml
+- db-pv.yml
+- db-deployment.yml
+- db-service.yml
